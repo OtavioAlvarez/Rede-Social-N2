@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMO | Meu Perfil</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="profile">
+    <header class="topbar">
+        <a class="brand" href="./tela_principal.html">EMO</a>
+
+        <nav class="topnav" aria-label="Navegacao principal">
+            <a href="./tela_principal.html">Rede</a>
+            <a href="#">Descobrir</a>
+            <a class="is-active" href="./perfil.html" aria-current="page">Meu Perfil</a>
+        </nav>
+
+        <a class="topbar-avatar" href="./perfil.html" aria-label="Perfil do usuario">AL</a>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar" aria-label="Menu lateral">
+            <div class="sidebar-intro">
+                <h1>Rede</h1>
+                <p>Gerencie suas conexoes</p>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Secoes da conta">
+                <a href="#">Rede</a>
+                <a href="#">Descobrir</a>
+                <a href="#">Recentes</a>
+                <a href="#">Grupos</a>
+                <a href="#">Configuracoes</a>
+            </nav>
+
+            <button class="primary-button post-button" type="button">Novo post</button>
+        </aside>
+
+        <main class="profile-page">
+            <section class="hero" aria-label="Capa do perfil"></section>
+
+            <section class="profile-summary" aria-labelledby="profile-name">
+                <div class="profile-avatar" aria-hidden="true">AL</div>
+
+                <div class="profile-copy">
+                    <h2 id="profile-name">Andre Luiz</h2>
+                    <p>@andreluiz <span aria-hidden="true">&middot;</span> Pesquisador academico e desenvolvedor</p>
+                </div>
+            </section>
+
+            <div class="content-grid">
+                <div class="profile-rail">
+                    <section class="card panel" aria-labelledby="about-profile-title">
+                        <h3 id="about-profile-title">Sobre o perfil</h3>
+                        <dl class="info-list">
+                            <div>
+                                <dt>Email</dt>
+                                <dd>andre.luiz@university.edu</dd>
+                            </div>
+                            <div>
+                                <dt>Telefone</dt>
+                                <dd>+55 (11) 98877-6655</dd>
+                            </div>
+                            <div>
+                                <dt>Site</dt>
+                                <dd><a href="https://andreluiz.dev">andreluiz.dev</a></dd>
+                            </div>
+                            <div>
+                                <dt>Cidade</dt>
+                                <dd>Sao Paulo, Brasil</dd>
+                            </div>
+                            <div>
+                                <dt>Empresa</dt>
+                                <dd>Instituto de Inovacao Tecnologica</dd>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <section class="card panel" aria-labelledby="interests-title">
+                        <h3 id="interests-title">Interesses</h3>
+                        <ul class="interest-list">
+                            <li>Computacao quantica</li>
+                            <li class="is-highlighted">Aprendizado de maquina</li>
+                            <li>Escrita academica</li>
+                            <li>Codigo aberto</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <section class="posts-column" aria-labelledby="recent-posts-title">
+                    <h3 id="recent-posts-title" class="section-title">Posts recentes</h3>
+
+                    <article class="card post-card">
+                        <header class="post-header">
+                            <div class="post-author">
+                                <span class="mini-avatar" aria-hidden="true">AL</span>
+                                <div>
+                                    <h4>Andre Luiz</h4>
+                                    <p>Ha 2 horas <span aria-hidden="true">&middot;</span> Academico</p>
+                                </div>
+                            </div>
+
+                            <div class="post-actions" aria-label="Acoes do post">
+                                <a href="#">Editar</a>
+                                <a class="is-danger" href="#">Excluir</a>
+                            </div>
+                        </header>
+
+                        <div class="post-body">
+                            <h5>Explorando a intersecao entre IA e etica</h5>
+                            <p>Hoje participei de uma discussao sobre os impactos dos grandes modelos de linguagem na pesquisa academica. Precisamos de diretrizes claras para manter a integridade cientifica enquanto aproveitamos essas ferramentas.</p>
+                        </div>
+
+                        <footer class="post-footer">
+                            <div class="engagement">
+                                <span>Curtir</span>
+                                <span>Comentar</span>
+                            </div>
+                            <a href="#">Compartilhar</a>
+                        </footer>
+                    </article>
+
+                    <article class="card post-card">
+                        <header class="post-header">
+                            <div class="post-author">
+                                <span class="mini-avatar" aria-hidden="true">AL</span>
+                                <div>
+                                    <h4>Andre Luiz</h4>
+                                    <p>Ontem <span aria-hidden="true">&middot;</span> Desenvolvimento</p>
+                                </div>
+                            </div>
+
+                            <div class="post-actions" aria-label="Acoes do post">
+                                <a href="#">Editar</a>
+                                <a class="is-danger" href="#">Excluir</a>
+                            </div>
+                        </header>
+
+                        <div class="post-body">
+                            <div class="post-media" aria-label="Imagem ilustrativa de codigo"></div>
+                            <p>Finalizando a arquitetura do novo modulo de perfil da EMO, priorizando acessibilidade e desempenho para garantir uma experiencia fluida.</p>
+                        </div>
+
+                        <footer class="post-footer">
+                            <div class="engagement">
+                                <span>Curtir</span>
+                                <span>Comentar</span>
+                            </div>
+                            <a href="#">Compartilhar</a>
+                        </footer>
+                    </article>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../index.js"></script>
+</body>
+</html>

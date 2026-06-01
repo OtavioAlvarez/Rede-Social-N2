@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMO | Rede</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="network">
+    <header class="topbar">
+        <a class="brand" href="./tela_principal.html">EMO</a>
+
+        <nav class="topnav" aria-label="Navegacao principal">
+            <a class="is-active" href="./tela_principal.html" aria-current="page">Rede</a>
+            <a href="#">Descobrir</a>
+            <a href="./perfil.html">Meu Perfil</a>
+        </nav>
+
+        <a class="topbar-avatar" href="./perfil.html" aria-label="Abrir perfil">AL</a>
+    </header>
+
+    <div class="network-layout">
+        <aside class="sidebar network-sidebar" aria-label="Barra lateral de contatos">
+            <div class="sidebar-intro">
+                <h1>Rede</h1>
+                <p>Gerencie suas conexoes</p>
+            </div>
+
+            <section class="contacts-panel" aria-labelledby="contacts-title">
+                <h2 id="contacts-title">Contatos ativos</h2>
+
+                <ul class="contact-list">
+                    <li>
+                        <a class="contact-card" href="#">
+                            <span class="contact-avatar">LG</span>
+                            <span class="contact-copy">
+                                <strong>Leanne Graham</strong>
+                                <small>@Bret <span aria-hidden="true">&middot;</span> Romany</small>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="contact-card" href="#">
+                            <span class="contact-avatar is-dark">EH</span>
+                            <span class="contact-copy">
+                                <strong>Ervin Howell</strong>
+                                <small>@Antonette <span aria-hidden="true">&middot;</span> U isokyburgh</small>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="contact-card" href="#">
+                            <span class="contact-avatar is-soft">CB</span>
+                            <span class="contact-copy">
+                                <strong>Clementine Bauch</strong>
+                                <small>@Samantha <span aria-hidden="true">&middot;</span> McKenzieshire</small>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="contact-card" href="#">
+                            <span class="contact-avatar">PL</span>
+                            <span class="contact-copy">
+                                <strong>Patricia Lebsack</strong>
+                                <small>@Karianne <span aria-hidden="true">&middot;</span> South Elvis</small>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="contact-card" href="#">
+                            <span class="contact-avatar is-light">CS</span>
+                            <span class="contact-copy">
+                                <strong>Chelsey Dietrich</strong>
+                                <small>@Kamren <span aria-hidden="true">&middot;</span> Roscoeview</small>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <a class="settings-link" href="#">Configuracoes</a>
+        </aside>
+
+        <main class="network-main">
+            <section class="card composer-card" aria-labelledby="composer-title">
+                <h1 id="composer-title" class="sr-only">Criar publicacao</h1>
+
+                <form class="composer-form">
+                    <div class="composer-row">
+                        <span class="composer-avatar" aria-hidden="true">AL</span>
+                        <textarea rows="3" placeholder="Compartilhe sua pesquisa academica ou atualizacao profissional..."></textarea>
+                    </div>
+
+                    <div class="composer-actions">
+                        <div class="composer-tools">
+                            <button type="button">Imagem</button>
+                            <button type="button">Anexo</button>
+                            <button type="button">Tema</button>
+                        </div>
+
+                        <button class="primary-button" type="submit">Publicar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="feed-section" aria-labelledby="updates-title">
+                <header class="section-divider">
+                    <span></span>
+                    <h2 id="updates-title">Atualizacoes recentes</h2>
+                    <span></span>
+                </header>
+
+                <div class="feed-list" data-js="feed-list"></div>
+
+                <div class="load-more-wrap">
+                    <button class="secondary-button" type="button">Carregar mais atualizacoes</button>
+                </div>
+            </section>
+        </main>
+
+        <aside class="network-aside" aria-label="Conteudo complementar">
+            <section class="card side-card" aria-labelledby="trending-title">
+                <h2 id="trending-title">Grupos em alta</h2>
+                <ul class="group-list">
+                    <li><a href="#">Etica em Ciencia de Dados</a></li>
+                    <li><a href="#">Laboratorio de Pesquisa em UX</a></li>
+                    <li><a href="#">Humanidades Abertas</a></li>
+                </ul>
+            </section>
+
+            <section class="card side-card promo-card" aria-labelledby="premium-title">
+                <h2 id="premium-title">EMO Premium</h2>
+                <p>Tenha conexoes ilimitadas e mais visibilidade para sua carreira.</p>
+                <button class="primary-button" type="button">Fazer upgrade</button>
+            </section>
+        </aside>
+    </div>
+
+    <script src="../index.js"></script>
+</body>
+</html>

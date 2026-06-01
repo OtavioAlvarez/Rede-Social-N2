@@ -36,6 +36,10 @@ textarea {
     font: inherit;
 }
 
+button {
+    color: inherit;
+}
+
 .topbar {
     position: sticky;
     top: 0;
@@ -278,9 +282,17 @@ textarea:focus {
 
 .composer-tools button,
 .post-actions a,
+.post-actions button,
 .post-footer a,
 .engagement span {
     color: var(--brand);
+}
+
+.post-actions button {
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    background: transparent;
 }
 
 .primary-button,

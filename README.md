@@ -64,15 +64,6 @@ O projeto foi planejado para unir **design, estrutura e comportamento** em uma p
 2. Abra a pasta do projeto no seu editor.
 3. Execute o arquivo [tela_principal.html](./html/tela_principal.html) em um navegador.
 
-## Espaco para imagens do projeto
-
-Adicione suas imagens na pasta `assets/` e depois troque os caminhos abaixo pelos arquivos reais:
-
-```md
-![Tela principal](./assets/tela-principal.png)
-![Perfil do usuario](./assets/perfil.png)
-```
-
 ## Consideracoes finais
 
 O trabalho **N2 - Dinamismo na WEB** apresenta a construcao de uma interface inspirada em uma rede social, unindo planejamento visual, organizacao estrutural e recursos dinamicos no front-end. O resultado evidencia a aplicacao pratica dos conteudos estudados no desenvolvimento web.

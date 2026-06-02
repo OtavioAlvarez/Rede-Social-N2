@@ -24,7 +24,7 @@ function escapeHtml(value) {
     return element.innerHTML;
 }
 
-function createPostCard(post, user, editable = false) {
+function criarPostCard(post, user, editable = false) {
     const authorName = user?.name || "Usuario desconhecido";
     const username = user?.username || "semusuario";
     const company = user?.company?.name || "Rede EMO";
@@ -137,7 +137,7 @@ function renderNetworkFeed() {
     const postsToRender = sortPosts(cachedPosts).slice(0, visiblePosts);
 
     feedList.innerHTML = postsToRender
-        .map((post) => createPostCard(post, usersById.get(post.userId)))
+        .map((post) => criarPostCard(post, usersById.get(post.userId)))
         .join("");
 
     if (loadMoreButton) {
@@ -292,7 +292,7 @@ function renderProfile(user, posts) {
 
     postsColumn.innerHTML = `
         <h3 id="recent-posts-title" class="section-title">Posts recentes</h3>
-        ${sortPosts(posts).map((post) => createPostCard(post, user, true)).join("")}
+        ${sortPosts(posts).map((post) => criarPostCard(post, user, true)).join("")}
     `;
 }
 
@@ -339,7 +339,7 @@ async function loadNetworkFeed() {
     }
 }
 
-async function loadProfile() {
+async function carregarPerfil() {
     try {
         const savedPosts = loadSavedPosts();
         const [user, posts, users] = await Promise.all([
@@ -364,5 +364,5 @@ if (page === "network") {
 }
 
 if (page === "profile") {
-    loadProfile();
+    carregarPerfil();
 }

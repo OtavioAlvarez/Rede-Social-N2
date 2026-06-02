@@ -2,12 +2,16 @@ const POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
 const USERS_URL = "https://jsonplaceholder.typicode.com/users";
 const STORAGE_KEY = "emo-posts";
 const POSTS_PER_PAGE = 10;
-const CURRENT_USER_ID = 1;
+const CURRENT_USER_ID = 2;
 
 const page = document.body.dataset.page;
 let visiblePosts = POSTS_PER_PAGE;
 let cachedPosts = [];
 let cachedUsers = [];
+
+function getCurrentUser() {
+    return cachedUsers.find((user) => user.id === CURRENT_USER_ID) || null;
+}
 
 function getInitials(name) {
     return name
@@ -38,14 +42,14 @@ function criarPostCard(post, user, editable = false) {
                     <span class="mini-avatar" aria-hidden="true">${escapeHtml(initials)}</span>
                     <div>
                         <h4>${escapeHtml(authorName)}</h4>
-                        <p>@${escapeHtml(username)} <span aria-hidden="true">&middot;</span> ${escapeHtml(company)}</p>
+                        <p>@${escapeHtml(username)} <span aria-hidden="true">&middot; </span>${escapeHtml(company)}</p>
                     </div>
                 </div>
 
                 <div class="post-actions" aria-label="Acoes do post">
                     ${canEdit
-                        ? '<button type="button" data-action="edit-post">Editar</button><button class="is-danger" type="button" data-action="delete-post">Excluir</button>'
-                        : '<button type="button">Salvar</button><button type="button">Ver perfil</button>'}
+            ? '<button type="button" data-action="edit-post">Editar</button><button class="is-danger" type="button" data-action="delete-post">Excluir</button>'
+            : '<button type="button">Salvar</button><button type="button">Ver perfil</button>'}
                 </div>
             </header>
 
@@ -118,11 +122,30 @@ function renderContacts(users) {
                 <span class="contact-avatar" aria-hidden="true">${escapeHtml(getInitials(user.name))}</span>
                 <span class="contact-copy">
                     <strong>${escapeHtml(user.name)}</strong>
-                    <small>@${escapeHtml(user.username)} <span aria-hidden="true">&middot;</span> ${escapeHtml(user.address.city)}</small>
+                    <small>@${escapeHtml(user.username)} <span aria-hidden="true">&middot; </span>${escapeHtml(user.address.city)}</small>
                 </span>
             </a>
         </li>
     `).join("");
+}
+
+function renderCurrentUserUi(user) {
+    if (!user) {
+        return;
+    }
+
+    const initials = getInitials(user.name);
+    const topbarAvatar = document.querySelector(".topbar-avatar");
+    const composerAvatar = document.querySelector(".composer-avatar");
+
+    if (topbarAvatar) {
+        topbarAvatar.textContent = initials;
+        topbarAvatar.setAttribute("aria-label", `Perfil de ${user.name}`);
+    }
+
+    if (composerAvatar) {
+        composerAvatar.textContent = initials;
+    }
 }
 
 function renderNetworkFeed() {
@@ -275,7 +298,7 @@ function renderProfile(user, posts) {
     const initials = getInitials(user.name);
 
     profileName.textContent = user.name;
-    profileDescription.innerHTML = `@${escapeHtml(user.username)} <span aria-hidden="true">&middot;</span> ${escapeHtml(user.company.name)}`;
+    profileDescription.innerHTML = `@${escapeHtml(user.username)} <span aria-hidden="true">&middot; </span>${escapeHtml(user.company.name)}`;
     profileAvatar.textContent = initials;
 
     if (topbarAvatar) {
@@ -329,6 +352,7 @@ async function loadNetworkFeed() {
 
         cachedPosts = savedPosts || posts;
         cachedUsers = users;
+        renderCurrentUserUi(getCurrentUser());
         renderContacts(cachedUsers);
         renderNetworkFeed();
         setupLoadMoreButton();
@@ -342,17 +366,23 @@ async function loadNetworkFeed() {
 async function carregarPerfil() {
     try {
         const savedPosts = loadSavedPosts();
-        const [user, posts, users] = await Promise.all([
-            getJson(`${USERS_URL}/1`),
+        const [posts, users] = await Promise.all([
             getJson(POSTS_URL),
             getJson(USERS_URL),
         ]);
 
         cachedUsers = users;
         cachedPosts = savedPosts || posts;
-        renderProfile(user, cachedPosts.filter((post) => post.userId === CURRENT_USER_ID).slice(0, 5));
+        const currentUser = getCurrentUser();
+
+        if (!currentUser) {
+            throw new Error(`Usuario ${CURRENT_USER_ID} nao encontrado.`);
+        }
+
+        renderCurrentUserUi(currentUser);
+        renderProfile(currentUser, cachedPosts.filter((post) => post.userId === CURRENT_USER_ID).slice(0, 5));
         setupPostActions(".posts-column", () => {
-            renderProfile(user, cachedPosts.filter((post) => post.userId === CURRENT_USER_ID).slice(0, 5));
+            renderProfile(currentUser, cachedPosts.filter((post) => post.userId === CURRENT_USER_ID).slice(0, 5));
         });
     } catch (error) {
         renderError(".posts-column");
@@ -366,3 +396,4 @@ if (page === "network") {
 if (page === "profile") {
     carregarPerfil();
 }
+ 
